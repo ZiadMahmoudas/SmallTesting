@@ -1,0 +1,13 @@
+<div class="card p-3">
+  @if(ishero){
+  <h3>Create Hero</h3>
+}@else {
+  
+  <h3>Edit Hero</h3>
+  }
+  <input type="text" [(ngModel)]="hero.superName" placeholder="Super Name" class="form-control mb-2"/>
+  <input type="text" [(ngModel)]="hero.firstName" placeholder="First Name" class="form-control mb-2"/>
+  <input type="text" [(ngModel)]="hero.lastName" placeholder="Last Name" class="form-control mb-2"/>
+  <input type="text" [(ngModel)]="hero.place" placeholder="Place" class="form-control mb-2"/>
+  <button class="btn btn-success" (click)="save()">Save</button>
+</div>

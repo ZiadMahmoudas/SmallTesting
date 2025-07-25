@@ -1,0 +1,30 @@
+<button (click)="initCreateHero()" class="btn btn-primary">Create New Hero</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">superId</th>
+      <th scope="col">superName</th>
+      <th scope="col">firstName</th>
+      <th scope="col">lastName</th>
+      <th scope="col">place</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of heroes; track $index) {
+    <tr >
+      <th scope="row">{{ item.superId }}</th>
+      <td>{{ item.superName }}</td>
+      <td>{{ item.firstName }}</td>
+      <td>{{ item.lastName }}</td>
+      <td>{{ item.place }}</td>
+      <div class="d-flex gap-3">
+      <td class="btn btn-warning" (click)="updateHero(item)">Update</td>
+      <td class="btn btn-danger" (click)="DeleteHero(item)">Delete</td>
+      </div>
+    </tr>
+  }
+  </tbody>
+</table>
+
+<app-edit-hero [hero]="heroToEdit" *ngIf="heroToEdit"></app-edit-hero>
