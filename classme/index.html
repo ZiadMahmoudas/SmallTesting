@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>شريط أخبار متحرك دائري</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      background: #222;
+      border-top: 3px solid #00ffc8;
+      border-bottom: 3px solid #00ffc8;
+      position: relative;
+      height: 50px;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      will-change: transform;
+      animation: scroll 20s linear infinite;
+    }
+
+    .marquee-container:hover .marquee-content {
+      animation-play-state: paused;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      padding: 0 2rem;
+      font-size: 1.2rem;
+      color: #00ffc8;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee-container">
+    <div class="marquee-content" id="marquee"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const messages = [
+      "🔥 عروض قوية لفترة محدودة!",
+      "🚀 اشحن مجاناً عند الطلب فوق 500 جنيه",
+      "🎉 خصم 70% على كل المنتجات!",
+      "📞 خدمة العملاء 24/7 على الرقم 123456"
+    ];
+
+    const $marquee = $('#marquee');
+
+    // ضم الرسائل مع سبانات
+    messages.forEach(msg => {
+      $marquee.append(`<span class="marquee-text">${msg}</span>`);
+    });
+
+    // نكرر نفس المحتوى علشان الاستمرارية
+    messages.forEach(msg => {
+      $marquee.append(`<span class="marquee-text">${msg}</span>`);
+    });
+  </script>
+
+</body>
+</html>
